@@ -13,20 +13,18 @@ const contactSchema = Schema(
     phone: {
       type: String,
       minlength: [10, 'contact number must contain a minimum of 10 symbols.'],
-      // validate: {
-      //   validator(value) {
-      //     return value.length >= 10;
-      //   },
-      //   message: ({ value }) =>
-      //     `'${value}' is not a valid phone number. Contact number must contain a minimum of 10 symbols.`,
-      // },
     },
     favorite: {
       type: Boolean,
       default: false,
     },
+    // owner: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'user',
+    //   required: true,
+    // },
   },
   { versionKey: false },
 )
 const Contact = model('contact', contactSchema)
-module.exports = { Contact }
+module.exports = Contact
