@@ -1,8 +1,9 @@
 const { user: service } = require('../../services')
 
-module.exports = async (req, res, next) => {
+module.exports = async ({ user: { id } }, res, next) => {
+  console.log(id)
   try {
-    const id = req.user._id
+    // const id = req.user._id
     await service.updateUser(id, { token: null })
     res.json({
       status: 'saccess',

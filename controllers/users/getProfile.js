@@ -4,7 +4,7 @@ require('dotenv').config()
 // const { user: service } = require('../../services/user')
 
 const getProfile = async (req, res, nex) => {
-  console.log(req.user)
+  // console.log(req.user)
   const { email, subscription } = req.user
   // const userProfile = { email, subscription }
   res.json({

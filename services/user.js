@@ -17,7 +17,7 @@ const add = ({ password, email }) => {
 }
 
 const updateUser = (userId, body) => {
-  User.findByIdAndUpdate(userId, body)
+  return User.findByIdAndUpdate(userId, body)
 }
 
 module.exports = {
