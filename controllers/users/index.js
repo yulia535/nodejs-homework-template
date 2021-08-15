@@ -1,3 +1,3 @@
 const getProfile = require('./getProfile')
-
-module.exports = getProfile
+const updateAvatar = require('./updateAvatar')
+module.exports = { getProfile, updateAvatar }
