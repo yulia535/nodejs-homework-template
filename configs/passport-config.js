@@ -10,7 +10,6 @@ const settings = {
   secretOrKey: SECRET_KEY
 }
 const jwtStrategy = new Strategy(settings, async (payload, done) => {
-  console.log(payload.id)
   try {
     const user = await service.getById(payload.id)
     if (!user || !user.token) {
