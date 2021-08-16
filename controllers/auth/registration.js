@@ -1,6 +1,6 @@
 const { user: service } = require('../../services')
 const { v4: uuidv4 } = require('uuid')
-const { sendMail } = require('../../utils/validate/sendMail')
+const { sendMail } = require('../../utils/sendMail')
 
 module.exports = async (req, res, next) => {
   const { email, password } = req.body
@@ -14,15 +14,15 @@ module.exports = async (req, res, next) => {
       })
       return
     }
-    const verifyCode = uuidv4()
-    console.log(verifyCode)
+    const verifyToken = uuidv4()
+    console.log(verifyToken)
     // eslint-disable-next-line no-unused-vars
-    const newUser = await service.add({ email, password, verifyCode })
+    const newUser = await service.add({ email, password, verifyToken })
     console.log(newUser)
     const emailText = {
       to: email,
       subject: '✔ Verify your email',
-      html: `<span>To complete the registration, click on the link:</span> <a href="http://localhost:3000/api/users/verify/${verifyCode}"><b>Verify account</b></a>`,
+      html: `<span>To complete the registration, click on the link:</span> <a href="http://localhost:3000/api/users/verify/${verifyToken}"><b>Verify account</b></a>`,
     }
     await sendMail(emailText)
     res.status(201).json({
