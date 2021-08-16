@@ -3,7 +3,8 @@ const dotenv = require('dotenv')
 dotenv.config()
 const mongoose = require('mongoose')
 
-const { DB_HOST, PORT = 3000 } = process.env
+// eslint-disable-next-line no-unused-vars
+const { DB_HOST, PORT = 3000, NODE_TLS_REJECT_UNAUTHORIZED } = process.env
 
 mongoose.connect(DB_HOST, {
   useNewUrlParser: true,
