@@ -1,8 +1,8 @@
 const { contacts: service } = require('../../services')
 
-module.exports = async ({ body }, res, next) => {
+module.exports = async ({ email, password }, res, next) => {
   try {
-    const result = await service.addContact(body)
+    const result = await service.addContact({ email, password })
 
     return res.status(201).json({
       status: 'Created',
